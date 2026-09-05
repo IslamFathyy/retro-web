@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Retrospective Lab</h1>
+    <nav>
+      <a data-nav="dashboard" href="index.html">Dashboard</a>
+      <a data-nav="retrospectives" href="retrospectives.html">Retrospectives</a>
+      <a data-nav="actions" href="actions.html">Actions</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Analysis</h2>
+    <div id="message" class="message" hidden></div>
+    <div class="card" id="retro-info"></div>
+    <div class="card">
+      <button id="generate-btn">Generate baseline analysis</button>
+    </div>
+    <div class="card" id="analysis-content"></div>
+  </main>
+  <script type="module" src="js/analysis.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Retrospective Lab</h1>
+    <nav>
+      <a data-nav="dashboard" href="index.html">Dashboard</a>
+      <a data-nav="retrospectives" href="retrospectives.html">Retrospectives</a>
+      <a data-nav="actions" href="actions.html">Actions</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Report</h2>
+    <div id="message" class="message" hidden></div>
+    <div class="card">
+      <button id="generate-btn">Generate report</button>
+    </div>
+    <div class="card report-content" id="report"></div>
+  </main>
+  <script type="module" src="js/report.js"></script>
+</body>
+</html>

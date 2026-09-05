@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retrospectives</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Retrospective Lab</h1>
+    <nav>
+      <a data-nav="dashboard" href="index.html">Dashboard</a>
+      <a data-nav="retrospectives" href="retrospectives.html">Retrospectives</a>
+      <a data-nav="actions" href="actions.html">Actions</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Retrospectives</h2>
+    <div id="message" class="message" hidden></div>
+
+    <div class="card">
+      <h3>Create retrospective</h3>
+      <form id="create-form">
+        <label for="title">Title</label>
+        <input id="title" required placeholder="Sprint 25 Retrospective">
+        <label for="team">Team</label>
+        <input id="team" required value="Demo Team">
+        <label for="period">Period</label>
+        <input id="period" required placeholder="Sprint 25">
+        <p><button type="submit">Create</button></p>
+      </form>
+    </div>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Period</th>
+            <th>Status</th>
+            <th>Feedback</th>
+            <th>Actions</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="retro-list"></tbody>
+      </table>
+    </div>
+  </main>
+  <script type="module" src="js/retrospectives.js"></script>
+</body>
+</html>

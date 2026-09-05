@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Feedback</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Retrospective Lab</h1>
+    <nav>
+      <a data-nav="dashboard" href="index.html">Dashboard</a>
+      <a data-nav="retrospectives" href="retrospectives.html">Retrospectives</a>
+      <a data-nav="actions" href="actions.html">Actions</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Submit feedback</h2>
+    <div id="message" class="message" hidden></div>
+    <div class="card" id="retro-info"></div>
+    <div class="card">
+      <form id="feedback-form">
+        <label for="type">Type</label>
+        <select id="type" required>
+          <option value="went-well">Went well</option>
+          <option value="did-not-go-well">Did not go well</option>
+          <option value="improvement">Improvement idea</option>
+        </select>
+        <label for="text">Feedback</label>
+        <textarea id="text" required maxlength="2000"></textarea>
+        <label><input type="checkbox" id="anonymous" checked> Submit anonymously</label>
+        <div id="name-field" hidden>
+          <label for="displayName">Display name</label>
+          <input id="displayName">
+        </div>
+        <p><button type="submit">Submit feedback</button></p>
+      </form>
+    </div>
+    <p><a id="board-link" href="#">View board →</a></p>
+  </main>
+  <script type="module" src="js/feedback.js"></script>
+</body>
+</html>
