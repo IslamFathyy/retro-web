@@ -1,5 +1,5 @@
 import { get, post } from './api.js';
-import { qs, setNav, showMessage, statusBadge } from './common.js';
+import { pageUrl, qs, setNav, showMessage, statusBadge } from './common.js';
 
 setNav('retrospectives');
 const retroId = qs('retroId');
@@ -9,7 +9,7 @@ const form = document.getElementById('feedback-form');
 const anonymous = document.getElementById('anonymous');
 const nameField = document.getElementById('name-field');
 
-document.getElementById('board-link').href = `board.html?retroId=${retroId}`;
+document.getElementById('board-link').href = pageUrl('board', { retroId });
 
 anonymous.addEventListener('change', () => {
   nameField.hidden = anonymous.checked;

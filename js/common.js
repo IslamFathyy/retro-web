@@ -2,6 +2,15 @@ export function qs(name) {
   return new URLSearchParams(window.location.search).get(name);
 }
 
+/** Build a page URL with query params. */
+export function pageUrl(page, params = {}) {
+  const query = new URLSearchParams(
+    Object.entries(params).filter(([, value]) => value != null && value !== '')
+  ).toString();
+  const file = page.endsWith('.html') ? page : `${page}.html`;
+  return query ? `${file}?${query}` : file;
+}
+
 export function setNav(active) {
   document.querySelectorAll('[data-nav]').forEach((link) => {
     link.classList.toggle('active', link.dataset.nav === active);
@@ -22,6 +31,19 @@ export function statusBadge(status) {
 export function formatDate(iso) {
   if (!iso) return '—';
   return new Date(iso).toLocaleString();
+}
+
+export function formatOwnerTeamIds(ownerTeams, labelMap = {}, legacyOwner = '') {
+  if (ownerTeams?.length) {
+    return ownerTeams.map((id) => labelMap[id] || id).join(', ');
+  }
+  return legacyOwner || 'Unassigned';
+}
+
+/** Web UI renders insights from JSON charts; omit the markdown duplicate. */
+export function stripInsightsFromMarkdown(markdown) {
+  if (!markdown) return '';
+  return markdown.replace(/^## Insights at a Glance\r?\n[\s\S]*?(?=^## )/m, '');
 }
 
 export function renderMarkdownSimple(markdown) {

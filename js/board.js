@@ -1,13 +1,13 @@
 import { get, post } from './api.js';
-import { qs, setNav, showMessage, statusBadge } from './common.js';
+import { pageUrl, qs, setNav, showMessage, statusBadge } from './common.js';
 
 setNav('retrospectives');
 const retroId = qs('retroId');
 const message = document.getElementById('message');
 
-document.getElementById('feedback-link').href = `feedback.html?retroId=${retroId}`;
-document.getElementById('analysis-link').href = `analysis.html?retroId=${retroId}`;
-document.getElementById('report-link').href = `report.html?retroId=${retroId}`;
+document.getElementById('feedback-link').href = pageUrl('feedback', { retroId });
+document.getElementById('analysis-link').href = pageUrl('analysis', { retroId });
+document.getElementById('report-link').href = pageUrl('report', { retroId });
 
 function card(item) {
   const author = item.anonymous ? 'Anonymous' : item.displayName;

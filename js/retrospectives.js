@@ -1,5 +1,5 @@
 import { get, post } from './api.js';
-import { setNav, showMessage, statusBadge } from './common.js';
+import { pageUrl, setNav, showMessage, statusBadge } from './common.js';
 
 setNav('retrospectives');
 const message = document.getElementById('message');
@@ -7,12 +7,13 @@ const list = document.getElementById('retro-list');
 const form = document.getElementById('create-form');
 
 function retroLinks(id) {
+  const q = { retroId: id };
   return `
-    <a href="feedback.html?retroId=${id}">Feedback</a> ·
-    <a href="board.html?retroId=${id}">Board</a> ·
-    <a href="analysis.html?retroId=${id}">Analysis</a> ·
-    <a href="actions.html?retroId=${id}">Actions</a> ·
-    <a href="report.html?retroId=${id}">Report</a>
+    <a href="${pageUrl('feedback', q)}">Feedback</a> ·
+    <a href="${pageUrl('board', q)}">Board</a> ·
+    <a href="${pageUrl('analysis', q)}">Analysis</a> ·
+    <a href="${pageUrl('actions', q)}">Actions</a> ·
+    <a href="${pageUrl('report', q)}">Report</a>
   `;
 }
 

@@ -1,5 +1,5 @@
 import { get, put } from './api.js';
-import { qs, setNav, showMessage } from './common.js';
+import { qs, setNav, showMessage, formatOwnerTeamIds } from './common.js';
 
 setNav('actions');
 const retroId = qs('retroId');
@@ -7,11 +7,17 @@ const message = document.getElementById('message');
 const retroActions = document.getElementById('retro-actions');
 const openActions = document.getElementById('open-actions');
 
+let teamLabels = {};
+
+function formatTeams(action) {
+  return formatOwnerTeamIds(action.ownerTeams, teamLabels, action.owner);
+}
+
 function actionRow(action, editable = true) {
   return `
     <div class="feedback-card" data-id="${action.id}">
       <strong>${action.title}</strong>
-      <p>Owner: ${action.owner} · Target: ${action.targetDate} · Status: ${action.status}</p>
+      <p>Teams: ${formatTeams(action)} · Target: ${action.targetDate} · Status: ${action.status}</p>
       ${editable ? `
         <select class="status-select">
           <option value="open" ${action.status === 'open' ? 'selected' : ''}>open</option>
@@ -54,4 +60,14 @@ async function loadOpenActions() {
   openActions.innerHTML = items.map((a) => actionRow(a, false)).join('') || '<p>No open actions.</p>';
 }
 
-Promise.all([loadRetroActions(), loadOpenActions()]).catch((err) => showMessage(message, err.message, true));
+async function init() {
+  try {
+    const teamsDoc = await get('/action-teams');
+    teamLabels = Object.fromEntries(teamsDoc.teams.map((team) => [team.id, team.label]));
+  } catch {
+    teamLabels = {};
+  }
+  await Promise.all([loadRetroActions(), loadOpenActions()]);
+}
+
+init().catch((err) => showMessage(message, err.message, true));
