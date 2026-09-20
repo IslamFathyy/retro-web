@@ -1,0 +1,14 @@
+---
+description: Frontend stack and UI standards
+globs: "**/*.{html,js,css}"
+alwaysApply: false
+---
+
+# Frontend Rules
+
+- Vanilla JavaScript only — no React, Vue, or TypeScript.
+- Fetch data through `js/api.js`; never read `retro-api/data/` from the browser.
+- Use semantic HTML (`main`, `nav`, `button`, `label` + `for`).
+- Show user-visible errors when API calls fail; do not fail silently.
+- Preserve teaching-oriented simplicity — no new framework without approval.
+- Match existing CSS class patterns in `css/` before adding one-off styles.
