@@ -11,8 +11,8 @@ Vanilla HTML, CSS, and JavaScript. Read-only validation UI for Cursor-driven wor
 
 ## Before editing
 
-1. Read parent [`../AGENTS.md`](../AGENTS.md) for multi-repo routing.
-2. Apply root [`../.cursor/rules/privacy.mdc`](../.cursor/rules/privacy.mdc) and [`development.mdc`](../.cursor/rules/development.mdc).
+1. Read parent [`../../AGENTS.md`](../../AGENTS.md) for multi-repo routing.
+2. Apply root [`../../.cursor/rules/privacy.mdc`](../../.cursor/rules/privacy.mdc) and [`../../.cursor/rules/development.mdc`](../../.cursor/rules/development.mdc).
 3. Apply [`.cursor/rules/frontend.mdc`](.cursor/rules/frontend.mdc) for UI files.
 
 ## API contract
