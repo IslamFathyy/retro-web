@@ -1,14 +1,23 @@
 ---
-description: Frontend stack and UI standards
-globs: "**/*.{html,js,css}"
+description: Static UI constraints and retrospective display rules
+globs: **/*.{html,js,css}
 alwaysApply: false
 ---
 
-# Frontend Rules
+# Frontend
 
-- Vanilla JavaScript only — no React, Vue, or TypeScript.
-- Fetch data through `js/api.js`; never read `retro-api/data/` from the browser.
-- Use semantic HTML (`main`, `nav`, `button`, `label` + `for`).
-- Show user-visible errors when API calls fail; do not fail silently.
-- Preserve teaching-oriented simplicity — no new framework without approval.
-- Match existing CSS class patterns in `css/` before adding one-off styles.
+## Do
+
+- Show anonymous feedback with `displayName` null as anonymous in the UI.
+- Display team ownership from API fields (`ownerTeams` / team labels), not individual assignees.
+- Surface API errors with clear, visible messages for users.
+- Use vanilla HTML, CSS, and JavaScript only; call the API via `js/api.js` and base URL from `js/config.js`.
+- Use semantic HTML, labels on inputs, and one concern per file under `js/`.
+
+## Do not
+
+- Read `repos/retro-api/data/` or local JSON data files directly from the browser or static app.
+- Deanonymize feedback or rank people in the UI.
+- Approve or convert suggestions to actions without the facilitator flow and API (`/approve-suggestions` guardrails).
+- Introduce React, Vue, Angular, TypeScript, or a bundler/build step.
+- Bypass `js/api.js` for retrospective data.
